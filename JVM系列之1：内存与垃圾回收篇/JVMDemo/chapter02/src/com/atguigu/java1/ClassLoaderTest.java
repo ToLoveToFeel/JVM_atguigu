@@ -26,7 +26,5 @@ public class ClassLoaderTest {
         //String类使用引导类加载器进行加载的。---> Java的核心类库都是使用引导类加载器进行加载的。
         ClassLoader classLoader1 = String.class.getClassLoader();
         System.out.println(classLoader1);//null
-
-
     }
 }

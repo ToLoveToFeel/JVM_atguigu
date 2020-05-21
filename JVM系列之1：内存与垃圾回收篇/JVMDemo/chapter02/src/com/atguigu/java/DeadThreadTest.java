@@ -24,8 +24,13 @@ class DeadThread{
     static{
         if(true){
             System.out.println(Thread.currentThread().getName() + "初始化当前类");
-            while(true){
-
+//            while(true){
+//
+//            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }

@@ -13,7 +13,6 @@ public class ClassLoaderTest2 {
             //2.
             ClassLoader classLoader1 = Thread.currentThread().getContextClassLoader();
             System.out.println(classLoader1);
-
             //3.
             ClassLoader classLoader2 = ClassLoader.getSystemClassLoader().getParent();
             System.out.println(classLoader2);

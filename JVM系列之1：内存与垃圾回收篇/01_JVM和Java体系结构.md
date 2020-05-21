@@ -172,11 +172,163 @@
 
 ## 8 JVM的架构模型
 
+* Java编译器输入的指令流基本上是一种基于<font color=red>**栈的指令集架构**</font>，另外一种指令集架构则是基于<font color=red>**寄存器的指令集架构**</font>。
 
+* 具体来说：这两种架构之间的区别：
+
+  * <font color=red>**基于栈式架构的特点**</font>：
+    * 设计和实现简单，适用于资源受限的系统；
+    * 避开了寄存器的分配难题：使用零地址指令方式分配。
+    * 指令流中的大部分是零地址指令，其执行过程依赖于操作栈。指令集更小，编译器容易实现。
+    * 不需要硬件支持，可移植性更好，更好实现跨平台
+  * <font color=red>**基于寄存器架构的特点**</font>
+    * 典型的应用是x86的二进制指令集：比如传统的PC以及Android的Davlik虚拟机。
+    * 指令集架构则完全依赖硬件，可移植性差
+    * 性能优秀和执行高效；
+    * 花费更少的指令去完成一项操作。
+    * 在大部分情况下，基于寄存器架构的指令集往往都是以一地址指令、二地址指令和三地址指令为主，而基于栈式架构的指令集却是以零地址指令为主。
+
+* 举例：反编译javap
+
+  ```java
+  public class StackStruTest {
+      public static void main(String[] args) {
+          //int i = 2 + 3;
+          int i = 2;
+          int j = 3;
+          int k = i + j;
+      }
+  }
+  ```
+
+  <img src="images/21.png" alt="img" style="zoom:75%;" />
+
+  <img src="images/22.png" alt="img" style="zoom:60%;" />
+
+  <img src="images/23.png" alt="img" style="zoom:60%;" />
+
+  <img src="images/24.png" alt="img" style="zoom:60%;" />
+
+  <img src="images/25.png" alt="img" style="zoom:70%;" />
+
+  <img src="images/26.png" alt="img" style="zoom:70%;" />
+
+* 总结：
+  * <font color=red>**由于跨平台的设计，Java的指令都是根据栈来设计的**</font>。不同平台的CPU架构不同，所以不能设计为基于寄存器的。优点是跨平台，指令集小，编译器容易实现，缺点是性能下降，实现同样的功能需要更多的指令。
+  * 时至今日，尽管嵌入式平台已经不是Java程序的主流运行平台了（准确来说应该是HotSpotVM的宿主环境已经不局限于嵌入式平台了），那么为什么不将架构更换为基于寄存器的架构呢？这是因为这种方式实现简单；另外基于栈式的结果在各个平台可以用，没必要更换了。
 
 ## 9 JVM的生命周期
 
+* **虚拟机的启动**
 
+  * Java虚拟机的启动是通过引导类加载器（bootstrap class loader）创建一个初始类（initial class）来完成的，这个类是由虚拟机的具体实现指定的。
+
+* **虚拟机的执行**
+
+  * 一个运行的Java虚拟机有着一个清晰的任务：执行Java程序。
+  * 程序开始执行时他才运行，程序结束时他就停止。
+  * <font color=red>**执行一个所谓的Java程序的时候，真真正正在执行的是一个叫做Java虚拟机的进程**</font>。
+
+* **虚拟机的退出**
+
+  * 有如下的几种情况：
+
+    * 程序正常执行结束
+    * 程序在执行过程中遇到了异常或错误而异常终止
+    * 由于操作系统出现错误而导致Java虚拟机进程结束
+    * 某线程调用Runtime类或System类的exit方法，或Runtime类的halt方法，并且Java安全管理器也允许这次exit或halt操作。
+    * 除此之外，JNI（Java Native Interface）规范描述了用JNI Invocation API来加载或卸载Java虚拟机是，Java虚拟机的退出情况。
+
+  * System
+
+    ```java
+    public final class System {
+        // ...
+        
+        public static void exit(int status) {
+            Runtime.getRuntime().exit(status);
+        }
+        
+        // ...
+    }
+    ```
+
+  * Runtime
+
+    ```java
+    public class Runtime {
+        private static Runtime currentRuntime = new Runtime();
+    
+        public static Runtime getRuntime() {
+            return currentRuntime;
+        }
+    
+        /** Don't let anyone else instantiate this class */
+        private Runtime() {}
+        
+        // ...
+        
+        public void exit(int status) {
+            SecurityManager security = System.getSecurityManager();
+            if (security != null) {
+                security.checkExit(status);
+            }
+            Shutdown.exit(status);
+        }
+        
+        // ...
+        
+        public void halt(int status) {
+            SecurityManager sm = System.getSecurityManager();
+            if (sm != null) {
+                sm.checkExit(status);
+            }
+            Shutdown.halt(status);
+        }
+        
+        // ...
+    }
+    ```
+
+    一个进程对应一个JVM，一个JVM就对应着一个Runtime
 
 ## 10 JVM的发展历程
 
+<img src="images/27.png" alt="img" style="zoom:50%;" />
+
+<img src="images/28.png" alt="img" style="zoom:50%;" />
+
+<img src="images/29.png" alt="img" style="zoom:50%;" />
+
+<img src="images/30.png" alt="img" style="zoom:50%;" />
+
+<img src="images/31.png" alt="img" style="zoom:50%;" />
+
+<img src="images/32.png" alt="img" style="zoom:50%;" />
+
+<img src="images/33.png" alt="img" style="zoom:50%;" />
+
+<img src="images/34.png" alt="img" style="zoom:50%;" />
+
+<img src="images/35.png" alt="img" style="zoom:50%;" />
+
+<img src="images/36.png" alt="img" style="zoom:50%;" />
+
+<img src="images/37.png" alt="img" style="zoom:50%;" />
+
+<img src="images/38.png" alt="img" style="zoom:50%;" />
+
+将.apk文件改为.zip格式的，然后解压，里面显示的内容如下，我们可以看到.dex文件
+
+<img src="images/39.png" alt="img" style="zoom:60%;" />
+
+<img src="images/40.png" alt="img" style="zoom:60%;" />
+
+<img src="images/41.png" alt="img" style="zoom:50%;" />
+
+* 具体JVM的内存结构，其实取决于其实现，不同厂商的JVM，或者同一昌盛发布的不同版本，都有可能存在一定差异。本套课程主要以Oracle HotSpot VM为默认虚拟机。
+
+<img src="images/42.png" alt="img" style="zoom:50%;" />
+
+* 如何知道学习什么技术？
+  * 关注大公司用什么技术，比如阿里在大数据方面已经全面倒向Flink了，我们就应该学习Flink

@@ -11,13 +11,15 @@ public class StackStruTest {
         int j = 3;
         int k = i + j;
 
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
 
-        System.out.println("hello");
+//        try {
+//            Thread.sleep(6000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        System.out.println("hello");
     }
 }

@@ -15,5 +15,4 @@ public class StackErrorTest {
         count++;
         main(args);
     }
-
 }

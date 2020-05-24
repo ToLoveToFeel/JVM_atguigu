@@ -14,10 +14,7 @@ public class DynamicLinkingTest {
 
     public void methodB(){
         System.out.println("methodB()....");
-
         methodA();
-
         num++;
     }
-
 }

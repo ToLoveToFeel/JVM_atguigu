@@ -2,8 +2,9 @@ package com.atguigu.java2;
 
 /**
  * 解析调用中非虚方法、虚方法的测试
- *
+ * <p>
  * invokestatic指令和invokespecial指令调用的方法称为非虚方法
+ *
  * @author shkstart
  * @create 2020 下午 12:07
  */
@@ -30,14 +31,17 @@ public class Son extends Father {
         //invokespecial
         super();
     }
+
     public Son(int age) {
         //invokespecial
         this();
     }
+
     //不是重写的父类的静态方法，因为静态方法不能被重写！
     public static void showStatic(String str) {
         System.out.println("son " + str);
     }
+
     private void showPrivate(String str) {
         System.out.println("son private" + str);
     }
@@ -64,11 +68,11 @@ public class Son extends Father {
         in.methodA();
     }
 
-    public void info(){
+    public void info() {
 
     }
 
-    public void display(Father f){
+    public void display(Father f) {
         f.showCommon();
     }
 
@@ -78,6 +82,6 @@ public class Son extends Father {
     }
 }
 
-interface MethodInterface{
+interface MethodInterface {
     void methodA();
 }

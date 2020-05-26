@@ -13,7 +13,6 @@ public class HeapDemo1 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         System.out.println("end...");
     }
 }

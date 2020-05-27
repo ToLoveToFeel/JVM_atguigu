@@ -3,6 +3,7 @@ package com.atguigu.java2;
 /**
  * 栈上分配测试
  * -Xmx1G -Xms1G -XX:-DoEscapeAnalysis -XX:+PrintGCDetails
+ *
  * @author shkstart  shkstart@126.com
  * @create 2020  10:31
  */
@@ -25,10 +26,9 @@ public class StackAllocation {
     }
 
     private static void alloc() {
-        User user = new User();//未发生逃逸
+        User user = new User();  // 未发生逃逸
     }
 
     static class User {
-
     }
 }

@@ -1,13 +1,10 @@
-Classfile /D:/workspace_idea5/JVMDemo/out/production/chapter09/com/atguigu/java/MethodInnerStrucTest.class
-  Last modified 2020-4-22; size 1626 bytes
-  MD5 checksum 69643a16925bb67a96f54050375c75d0
+Classfile /E:/7.整理的资料/4_JVM/1_JVM从入门到精通_尚硅谷/JVM系列之1：内存与垃圾回收篇/JVMDemo/out/production/chapter09/com/atguigu/java/MethodInnerStrucTest.class
+  Last modified 05-Jun-2020; size 1626 bytes
+  MD5 checksum 0d0fcb54854d4ce183063df985141ad0
   Compiled from "MethodInnerStrucTest.java"
-  //类型信息
-public class com.atguigu.java.MethodInnerStrucTest extends java.lang.Object 
-implements java.lang.Comparable<java.lang.String>, java.io.Serializable
-
+public class com.atguigu.java.MethodInnerStrucTest extends java.lang.Object implements java.lang.Comparable<java.lang.String>, java.io.Serializable
   minor version: 0
-  major version: 51
+  major version: 52
   flags: ACC_PUBLIC, ACC_SUPER
 Constant pool:
    #1 = Methodref          #18.#52        // java/lang/Object."<init>":()V
@@ -95,7 +92,6 @@ Constant pool:
   #83 = Utf8               (Ljava/lang/String;)V
   #84 = Utf8               printStackTrace
 {
-  //域信息
   public int num;
     descriptor: I
     flags: ACC_PUBLIC
@@ -104,7 +100,6 @@ Constant pool:
     descriptor: Ljava/lang/String;
     flags: ACC_PRIVATE, ACC_STATIC
 
-  //方法信息
   public com.atguigu.java.MethodInnerStrucTest();
     descriptor: ()V
     flags: ACC_PUBLIC

@@ -30,7 +30,5 @@ public class BufferTest2 {
         } finally {
             System.out.println(count);
         }
-
-
     }
 }

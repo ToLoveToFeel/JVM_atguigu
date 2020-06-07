@@ -32,7 +32,6 @@ public class IntCompTest {
                 }
                 //System.out.println(j);
             }
-
         }
     }
 }

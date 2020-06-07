@@ -12,7 +12,6 @@ public class JITTest {
 
         for (int i = 0; i < 1000; i++) {
             list.add("让天下没有难学的技术");
-
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

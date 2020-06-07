@@ -21,16 +21,15 @@ public class StringTest2 {
 
         BufferedReader br = null;
         try {
+            // word.txt是含有10万行，每行长度1~10的txt文件
             br = new BufferedReader(new FileReader("words.txt"));
             long start = System.currentTimeMillis();
             String data;
             while((data = br.readLine()) != null){
-                data.intern(); //如果字符串常量池中没有对应data的字符串的话，则在常量池中生成
+                data.intern();   // 如果字符串常量池中没有对应data的字符串的话，则在常量池中生成
             }
-
             long end = System.currentTimeMillis();
-
-            System.out.println("花费的时间为：" + (end - start));//1009:143ms  100009:47ms
+            System.out.println("花费的时间为：" + (end - start));  // 1009:253ms  100009:52ms
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -40,7 +39,6 @@ public class StringTest2 {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
             }
         }
     }

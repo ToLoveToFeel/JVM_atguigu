@@ -1,0 +1,520 @@
+#  第13章 StringTable
+
+## 1 String的基本特性
+
+* String：字符串，使用一对""引起来表示。
+
+  * String s1 = "Hello";  // 字面量定义方式
+  * String s2 = new String("Hello");
+
+* String声明为final的，不可被继承
+
+* String实现了Serializable接口：表示字符串是支持序列化的。
+
+  ​		   实现了Comparable接口：表示String可以比较大小
+
+* String在JDK8及以前内部定义了final char[] value用于储存字符串数据。JDK9时改为byte[]
+
+---
+
+* String在jdk9中存储结构变更
+
+  * http://openjdk.java.net/jeps/254
+
+    <img src="images/245.png" alt="img" style="zoom:80%;" />
+
+  * 结论：String再也不用char[]来存储了，改成了byte[]加上编码标识，节约了一些空间。
+
+    ```java
+    public final class String
+        implements java.io.Serializable, Comparable<String>, CharSequence {
+        // ...
+        @Stable
+        private final byte[] value;
+        
+        // ...
+    }
+    ```
+
+  * 那StringBuffer和StringBuilder是否仍无动于衷呢？
+
+    * 修改了
+    * String-related classes such as `AbstractStringBuilder`, `StringBuilder`, and `StringBuffer` will be updated to <font color=red>**use the same representation**</font>, as will the HotSpot VM's intrinsic（固有的、内置的） string operations.
+
+---
+
+* String：代表不可变的字符序列。简称：不可变性。
+
+  * 当对字符串重新赋值时，需要重写指定内存区域赋值，不能使用原有的value进行赋值。
+  * 当对现有的字符串进行连接操作时，也需要重新指定内存区域赋值，不能使用原有的value进行赋值。
+  * 当调用String的replace()方法修改指定字符或字符串时，需要重新指定内存区域赋值，不能使用原有的value赋值。
+
+* 通过字面量的方式（区别于new）给一个字符串赋值，此时的字符串值生命在常量池中。
+
+* 代码演示
+
+  ```java
+  /**
+   * String的基本使用:体现String的不可变性
+   */
+  public class StringTest1 {
+      @Test
+      public void test1() {
+          String s1 = "abc";  // 字面量定义的方式，"abc"存储在字符串常量池中
+          String s2 = "abc";
+          s1 = "hello";
+  
+          System.out.println(s1 == s2);  // 判断地址：true  --> false
+          System.out.println(s1);  // hello
+          System.out.println(s2);  // abc
+      }
+  
+      @Test
+      public void test2() {
+          String s1 = "abc";
+          String s2 = "abc";
+          s2 += "def";
+          System.out.println(s1 == s2);
+          System.out.println(s2);  // abcdef
+          System.out.println(s1);  // abc
+      }
+  
+      @Test
+      public void test3() {
+          String s1 = "abc";
+          String s2 = s1.replace('a', 'm');
+          System.out.println(s1 == s2);
+          System.out.println(s1);  // abc
+          System.out.println(s2);  // mbc
+      }
+  }
+  ```
+
+---
+
+* 一道面试题
+
+  ```java
+  public class StringExer {
+      String str = new String("good");
+      char[] ch = {'t', 'e', 's', 't'};
+  
+      public void change(String str, char ch[]) {
+  //        this.str = "test ok";
+          str = "test ok";
+          ch[0] = 'b';
+      }
+  
+      public static void main(String[] args) {
+          StringExer ex = new StringExer();
+          ex.change(ex.str, ex.ch);
+          System.out.println(ex.str);  // good
+          System.out.println(ex.ch);  // best
+      }
+  }
+  ```
+
+---
+
+* <font color=red>**字符串常量池中是不会存储相同的内容的字符串的**</font>。
+
+  * String是String Pool（字符串常量池）是一个固定大小的Hashtable，默认值大小长度时1009.如果放进String Pool的String非常多，就会造成Hash冲突严重，从而导致链表会很长，而链表长了以后直接会造成的影响就是当调用String.intern时性能大幅下降。
+
+  * 使用<font color=blue>**-XX:StringTableSize**</font>可以设置StringTable的长度
+
+  * 在jdk6中StringTable是固定的，就是1009的长度，所以常量池中的字符串过多就会导致效率下降很快。StringTableSize设置没有要求
+
+  * 在jdk7中，StringTable的默认长度时60013，StringTableSize设置没有要求
+
+  * jdk8开始，设置StringTable的长度的话，1009是可以设置的最小值。
+
+    <img src="images/246.png" alt="img" style="zoom:100%;" />
+
+    <img src="images/247.png" alt="img" style="zoom:100%;" />
+
+  * 设置不同的StringTableSize的性能对比
+
+    ```java
+    public class StringTest2 {
+        public static void main(String[] args) {
+            BufferedReader br = null;
+            try {
+                // word.txt是含有10万行，每行长度1~10的txt文件
+                br = new BufferedReader(new FileReader("words.txt"));
+                long start = System.currentTimeMillis();
+                String data;
+                while((data = br.readLine()) != null){
+                    data.intern();   // 如果字符串常量池中没有对应data的字符串的话，则在常量池中生成
+                }
+                long end = System.currentTimeMillis();
+                System.out.println("花费的时间为：" + (end - start));  // 1009:253ms  100009:52ms
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if(br != null){
+                    try {
+                        br.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+    ```
+
+## 2 String的内存分配
+
+* 在Java语言中有8中基本数据类型和一种比较特殊的类型String。这些类型为了使他们再运行过程中更快、更节省内存，都提供了一种常量池的概念。
+* 常量池就类似于一个Java级别提供的缓存。8中基本数据类型的常量池都是系统协调的，<font color=red>**String类型的常量池比较特殊。它的主要使用方法有两种**</font>。
+  * 直接使用双引号声明出来的String对象会直接存储在字符串常量池中。
+    * 比如： String info = "Hello";
+  * 如果不是用双引号声明的String对象，可以使用String提供的intern()方法。这个后面重点谈。
+
+---
+
+* Java 6及以前，字符创常量池存放在永久代。
+
+  <img src="images/203.png" alt="img" style="zoom:67%;" />
+
+* Java 7中Oracle的工程师对字符串常量池的逻辑做了很大的改变，即将<font color=red>**字符串常量池的位置调整到Java堆中**</font>。
+
+  * 所有的字符串都保存在堆（Heap）中，和其他普通对象一样，这样可以让你在进行调优应用时仅需要调整堆大小就可以了。
+
+  * 字符串常量池概念原本使用的比较多，但是这个改动使得我们有足够的理由让我们重新考虑在Java 7中使用String.intern()。
+
+    <img src="images/204.png" alt="img" style="zoom:67%;" />
+
+* Java 8元空间，字符串常量在堆。
+
+<img src="images/205.png" alt="img" style="zoom:67%;" />
+
+---
+
+* StringTable为什么要调整？
+
+  ① permSize默认比较小
+
+  ② 方法区垃圾回收频率比较低
+
+  * 官网：https://www.oracle.com/technetwork/java/javase/jdk7-relnotes-418459.html#jdk7changes
+
+    <img src="images/248.png" alt="img" style="zoom:100%;" />
+
+* 代码演示OOM：
+
+  ```java
+  /**
+   * jdk6中：
+   * -XX:PermSize=6m -XX:MaxPermSize=6m -Xms6m -Xmx6m
+   *
+   * jdk8中：
+   * -XX:MetaspaceSize=10m -XX:MaxMetaspaceSize=10m -Xms10m -Xmx10m
+   */
+  public class StringTest3 {
+      public static void main(String[] args) {
+          // 使用Set保持着常量池引用，避免full gc回收常量池行为
+          Set<String> set = new HashSet<String>();
+          // 在short可以取值的范围内足以让6MB的PermSize或heap产生OOM了。
+          int i = 0;
+          while(true){
+              set.add(String.valueOf(i++).intern());
+          }
+      }
+  }
+  ```
+
+  <img src="images/249.png" alt="img" style="zoom:100%;" />
+
+  <img src="images/250.png" alt="img" style="zoom:100%;" />
+
+## 3 String的基本操作
+
+```java
+public class StringTest4 {
+    public static void main(String[] args) {
+        System.out.println();  // 常量池中字符串个数：2166
+        System.out.println("1");  // 2167
+        System.out.println("2");
+        System.out.println("3");
+        System.out.println("4");  // 2170
+        //如下的字符串"1" 到 "4"不会再次加载
+        System.out.println("1");  // 2171
+        System.out.println("2");  // 2171
+        System.out.println("3");
+        System.out.println("4");  // 2171
+    }
+}
+```
+
+Java语言规范里要求完全相同的字符串字面量，应该包含同样的Unicode字符序列（包含同一份码点序列的常量），并且必须是指向同一个String类实例。
+
+---
+
+```java
+class Memory {
+    public static void main(String[] args) {  // line 1
+        int i = 1;  // line 2
+        Object obj = new Object();  // line 3
+        Memory mem = new Memory();  // line 4
+        mem.foo(obj);  // line 5
+    }  // line 9
+
+    private void foo(Object param) {  // line 6
+        String str = param.toString();  // line 7
+        System.out.println(str);
+    }  // line 8
+}
+```
+
+<img src="images/251.png" alt="img" style="zoom:67%;" />
+
+## 4 字符串拼接操作
+
+* 字符串拼接操作
+  1. 常量与常量的拼接结果在常量池，原理是编译器优化
+  2. 常量池中不会存在相同内容的变量。
+  3. 只要其中一个是变量，结果就在堆（堆中的非字符串常量池的位置）中。变量拼接的原理是StringBuilder。
+  4. 如果拼接的结果调用intern()方法，则主动将常量池中还没有的字符串对象放入字符串常量池中，并返回次对象地址。
+
+---
+
+```java
+/**
+ * 字符串拼接操作
+ *
+ * @author shkstart  shkstart@126.com
+ * @create 2020  0:59
+ */
+public class StringTest5 {
+    @Test
+    public void test1() {
+        String s1 = "a" + "b" + "c";  // 编译（前端编译）期优化：等同于"abc"
+        String s2 = "abc";  // "abc"一定是放在字符串常量池中，将此地址赋给s2
+        /*
+         * 最终.java编译成.class,再执行.class
+         * String s1 = "abc";
+         * String s2 = "abc"
+         */
+        System.out.println(s1 == s2);  // true
+        System.out.println(s1.equals(s2));  // true
+    }
+
+    @Test
+    public void test2() {
+        String s1 = "javaEE";
+        String s2 = "hadoop";
+
+        String s3 = "javaEEhadoop";
+        String s4 = "javaEE" + "hadoop";  // 编译期优化
+        // 如果拼接符号的前后出现了变量，则相当于在堆空间中new String()，具体的内容为拼接的结果：javaEEhadoop
+        String s5 = s1 + "hadoop";
+        String s6 = "javaEE" + s2;
+        String s7 = s1 + s2;
+
+        System.out.println(s3 == s4);  // true
+        System.out.println(s3 == s5);  // false
+        System.out.println(s3 == s6);  // false
+        System.out.println(s3 == s7);  // false
+        System.out.println(s5 == s6);  // false
+        System.out.println(s5 == s7);  // false
+        System.out.println(s6 == s7);  // false
+        // intern():判断字符串常量池中是否存在javaEEhadoop值，如果存在，则返回常量池中javaEEhadoop的地址；
+        // 如果字符串常量池中不存在javaEEhadoop，则在常量池中加载一份javaEEhadoop，并返回次对象的地址。
+        String s8 = s6.intern();
+        System.out.println(s3 == s8);  // true
+    }
+
+    @Test
+    public void test3() {
+        String s1 = "a";
+        String s2 = "b";
+        String s3 = "ab";
+        /*
+        如下的s1 + s2 的执行细节：(变量s是我临时定义的）
+        ① StringBuilder s = new StringBuilder();
+        ② s.append("a")
+        ③ s.append("b")
+        ④ s.toString()  --> 约等于 new String("ab")
+
+        补充：在jdk5.0及之后使用的是StringBuilder,在jdk5.0之前使用的是StringBuffer
+         */
+        String s4 = s1 + s2;
+        System.out.println(s3 == s4);  // false
+    }
+
+    /*
+    1. 字符串拼接操作不一定使用的是StringBuilder!
+       如果拼接符号左右两边都是字符串常量或常量引用，则仍然使用编译期优化，即非StringBuilder的方式。
+    2. 针对于final修饰类、方法、基本数据类型、引用数据类型的量的结构时，能使用上final的时候建议使用上。
+     */
+    @Test
+    public void test4() {
+        final String s1 = "a";
+        final String s2 = "b";
+        String s3 = "ab";
+        String s4 = s1 + s2;
+        System.out.println(s3 == s4);  // true
+    }
+
+    //练习：
+    @Test
+    public void test5() {
+        String s1 = "javaEEhadoop";
+        String s2 = "javaEE";
+        String s3 = s2 + "hadoop";
+        System.out.println(s1 == s3);  // false
+
+        final String s4 = "javaEE";  // s4:常量
+        String s5 = s4 + "hadoop";
+        System.out.println(s1 == s5);  // true
+
+    }
+
+    /*
+    体会执行效率：通过StringBuilder的append()的方式添加字符串的效率要远高于使用String的字符串拼接方式！
+    详情：① StringBuilder的append()的方式：自始至终中只创建过一个StringBuilder的对象
+          使用String的字符串拼接方式：创建过多个StringBuilder和String的对象
+         ② 使用String的字符串拼接方式：内存中由于创建了较多的StringBuilder和String的对象，内存占用更大；如果进行GC，需要花费额外的时间。
+
+     改进的空间：在实际开发中，如果基本确定要前前后后添加的字符串长度不高于某个限定值highLevel的情况下,建议使用构造器实例化：
+               StringBuilder s = new StringBuilder(highLevel);  // new char[highLevel]
+     */
+    @Test
+    public void test6() {
+
+        long start = System.currentTimeMillis();
+
+//        method1(100000);  // 4014
+        method2(100000);  // 7
+
+        long end = System.currentTimeMillis();
+
+        System.out.println("花费的时间为：" + (end - start));
+    }
+
+    public void method1(int highLevel) {
+        String src = "";
+        for (int i = 0; i < highLevel; i++) {
+            src = src + "a";  // 每次循环都会创建一个StringBuilder、String
+        }
+//        System.out.println(src);
+
+    }
+
+    public void method2(int highLevel) {
+        // 只需要创建一个StringBuilder
+        StringBuilder src = new StringBuilder();
+        for (int i = 0; i < highLevel; i++) {
+            src.append("a");
+        }
+//        System.out.println(src);
+    }
+}
+```
+
+* 对于test1，两种方式可以证明s1编译前已经被优化为"abc"
+
+  * 通过查看编译后的字节码文件内容
+
+    <img src="images/252.png" alt="img" style="zoom:100%;" />
+
+  * 通过jclasslib查看字节码信息
+
+    <img src="images/253.png" alt="img" style="zoom:100%;" />
+
+* 对于test3()，我们可以通过jclasslib看到s4是如何被创建的
+
+  <img src="images/254.png" alt="img" style="zoom:100%;" />
+
+* 对于test4()，里面的量用final修饰，仍然使用编译期优化，相当于s4 = "a" + "b";
+
+## 5 intern()使用
+
+* intern()源码
+
+  ```java
+  public final class String
+      implements java.io.Serializable, Comparable<String>, CharSequence {
+  	// ...
+      
+      public native String intern();
+  }
+  ```
+
+  <img src="images/255.png" alt="img" style="zoom:80%;" />
+
+---
+
+* 如果不是双引号声明的String对象，可以使用String提供的intern方法：intern方法会从字符串常量池中查询当前字符串是否存在，若不存在就将当前字符串放入常量池中。
+  * 比如：String myInfo = new String("Hello").intern();
+* 也就是说，如果在任意字符串上调用String.intern方法，那么返回结果所指向的那个类实例，必须和直接以常量形式的字符串实例完全相同。因此，下列边大师的值必定为true：
+  * ("a" + "b" + "c").intern() == "abc"
+* 通俗点将，Interned String就是确保字符串在内存里只有一份拷贝，这样可以节约内存，加快字符串操作任务的执行速度。注意，这个值会被存放在字符串内部池（String Intern Pool）。
+
+---
+
+* 关于new String创建对象的个数问题：根本是从字节码分析
+
+  ```java
+  /**
+   * 题目：
+   * new String("ab")会创建几个对象？看字节码，就知道是两个。
+   *     一个对象是：new关键字在堆空间创建的
+   *     另一个对象是：字符串常量池中的对象"ab"。 证明：字节码指令：ldc
+   *
+   *
+   * 思考：
+   * new String("a") + new String("b")呢？
+   *  对象1：new StringBuilder()
+   *  对象2： new String("a")
+   *  对象3： 常量池中的"a"
+   *  对象4： new String("b")
+   *  对象5： 常量池中的"b"
+   *
+   *  深入剖析： StringBuilder的toString():
+   *      对象6 ：new String("ab")
+   *       强调一下，toString()的调用，在字符串常量池中，没有生成"ab"
+   */
+  public class StringNewTest {
+      public static void main(String[] args) {
+  //        String str = new String("ab");
+  
+          String str = new String("a") + new String("b");
+      }
+  }
+  ```
+
+---
+
+* 一道难度极高的面试题：
+
+  ```java
+  public class StringIntern {
+      public static void main(String[] args) {
+  
+          String s = new String("1");
+          s.intern();  // 调用此方法之前，字符串常量池中已经存在了"1"
+          String s2 = "1";
+          System.out.println(s == s2);  // jdk6：false   jdk7/8：false
+  
+  
+          String s3 = new String("1") + new String("1");  // s3变量记录的地址为：new String("11")
+          // 执行完上一行代码以后，字符串常量池中，是否存在"11"呢？答案：不存在！！
+          s3.intern();  // 在字符串常量池中生成"11"。如何理解：jdk6:创建了一个新的对象"11",也就有新的地址。
+                                               //         jdk7:此时常量中并没有创建"11",而是创建一个指向堆空间中new String("11")的地址
+          String s4 = "11";  // s4变量记录的地址：使用的是上一行代码代码执行时，在常量池中生成的"11"的地址
+          System.out.println(s3 == s4); // jdk6：false  jdk7/8：true
+      }
+  }
+  ```
+
+  <img src="images/256.png" alt="img" style="zoom:67%;" />
+
+  <img src="images/257.png" alt="img" style="zoom:67%;" />
+
+## 6 StringTable的垃圾回收
+
+
+
+## 7 G1中的String去重操作

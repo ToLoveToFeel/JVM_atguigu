@@ -9,7 +9,7 @@ package com.atguigu.java3;
  */
 public class StringGCTest {
     public static void main(String[] args) {
-        for (int j = 0; j < 100000; j++) {
+        for (int j = 0; j < 100000; j++) {  // 循环次数从100调到100000
             String.valueOf(j).intern();
         }
     }

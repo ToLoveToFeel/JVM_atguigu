@@ -512,9 +512,160 @@ public class StringTest5 {
   <img src="images/256.png" alt="img" style="zoom:67%;" />
 
   <img src="images/257.png" alt="img" style="zoom:67%;" />
+  
+* 上一题的变式
+
+  ```java
+  public class StringIntern1 {
+      public static void main(String[] args) {
+          // StringIntern.java中练习的拓展：
+          String s3 = new String("1") + new String("1");  // new String("11")
+          // 执行完上一行代码以后，字符串常量池中，是否存在"11"呢？答案：不存在！！
+          String s4 = "11";  // 在字符串常量池中生成对象"11"
+          String s5 = s3.intern();
+          System.out.println(s3 == s4);  // false
+          System.out.println(s5 == s4);  // true
+      }
+  }
+  ```
+
+* 总结String的intern()的使用：
+
+  * jdk1.6中，将这个字符串尝试放入串池。
+    * 如果串池中有，则并不会放入。返回已有的串池的对象的地址
+    * 如果没有，会把<font color=blue>**此对象复制一份**</font>，放入串池，并返回串池中的对象地址
+  * jdk1.7起，将这个字符串尝试放入串池
+    * 如果串池中有，则并不会放入。返回已有的串池的对象的地址
+    * 如果没有，则会把<font color=blue>**对象的引用地址复制一份**</font>，放入串池，并返回串池中的引用地址
+
+---
+
+* intern()的使用：练习1
+
+  <img src="images/258.png" alt="img" style="zoom:67%;" />
+
+  <img src="images/259.png" alt="img" style="zoom:67%;" />
+
+  <img src="images/260.png" alt="img" style="zoom:67%;" />
+
+* intern()的使用：练习2
+
+  ```java
+  public class StringExer2 {
+      public static void main(String[] args) {
+          String s1 = new String("ab");  // 执行完以后，会在字符串常量池中会生成"ab"
+          s1.intern();
+          String s2 = "ab";
+          System.out.println(s1 == s2);  // jdk6/7/8：false
+      }
+  }
+  ```
+
+  ```java
+  public class StringExer2 {
+      public static void main(String[] args) {
+          String s1 = new String("a") + new String("b");  // 执行完以后，不会在字符串常量池中会生成"ab"
+          s1.intern();
+          String s2 = "ab";
+          System.out.println(s1 == s2);  // jdk6：false	jdk7/8：true
+      }
+  }
+  ```
+
+
+---
+
+* intern()空间效率测试
+
+  ```java
+  /**
+   * 使用intern()测试执行效率：空间使用上
+   * <p>
+   * 结论：对于程序中大量存在存在的字符串，尤其其中存在很多重复字符串时，使用intern()可以节省内存空间。
+   *
+   * @author shkstart  shkstart@126.com
+   * @create 2020  21:17
+   */
+  public class StringIntern2 {
+      static final int MAX_COUNT = 1000 * 10000;
+      static final String[] arr = new String[MAX_COUNT];
+  
+      public static void main(String[] args) {
+          Integer[] data = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  
+          long start = System.currentTimeMillis();
+          for (int i = 0; i < MAX_COUNT; i++) {
+  //            arr[i] = new String(String.valueOf(data[i % data.length]));
+              arr[i] = new String(String.valueOf(data[i % data.length])).intern();
+          }
+          long end = System.currentTimeMillis();
+          System.out.println("花费的时间为：" + (end - start));
+  
+          try {
+              Thread.sleep(1000000);
+          } catch (InterruptedException e) {
+              e.printStackTrace();
+          }
+          System.gc();
+      }
+  }
+  ```
+
+  **未使用intern()结果：**
+
+  <img src="images/261.png" alt="img" style="zoom:100%;" />
+
+  <img src="images/263.png" alt="img" style="zoom:100%;" />
+
+  **使用intern()结果：**
+
+  <img src="images/262.png" alt="img" style="zoom:100%;" />
+
+  <img src="images/264.png" alt="img" style="zoom:100%;" />
+
+  使用intern()会在堆中new对象，同时会在字符串常量池中放入字符串，然后arr[i]指向常量池中的字符串，new出的对象因为无人指向，因此垃圾回收时会被回收，从而达到节省内存的目的。
+
+* 大的网站平台，需要内存中存储大量的字符串。比如社交网站，很多人都存储：北京市、海淀区等信息。这时候如果字符串都调用intern()方法，就会明显降低内存的大小。
 
 ## 6 StringTable的垃圾回收
 
+```java
+/**
+ * String的垃圾回收:
+ * -Xms15m -Xmx15m -XX:+PrintStringTableStatistics -XX:+PrintGCDetails
+ */
+public class StringGCTest {
+    public static void main(String[] args) {
+        for (int j = 0; j < 100000; j++) {  // 循环次数从100调到100000
+            String.valueOf(j).intern();
+        }
+    }
+}
+```
 
+**当循环次数为100时的结果：**
+
+<img src="images/265.png" alt="img" style="zoom:100%;" />
+
+**当循环次数为100000时的结果：**
+
+<img src="images/266.png" alt="img" style="zoom:100%;" />
 
 ## 7 G1中的String去重操作
+
+* 官方描述：http://openjdk.java.net/jeps/192
+* 背景：对许多Java应用（有大的也有小的）做的测试得出如下结果：
+  * 堆存活数据集合里面String对象占了25%
+  * 堆存活数据集合里面重复的String对象有13.5%
+  * String对象的平均长度时45
+* 许多大规模的Java应用的瓶颈在于内存，测试表明，在这些类型的应用里面，<font color=blue>**Java堆中存活的数据集合差不多25%是String对象**</font>，更进一步，这里面差不多一半String对象是重复的，重复的意思是说：string1.equals(string2) == true; 堆上存在重复的String对象必然是一种内存的浪费。这个项目将在G1垃圾收集器中实现自动持续对重复的String对象进行去重，这样就能避免浪费内存。
+* 实现
+  * 当垃圾收集器工作的时候，会访问堆上存活的对象。<font color=blue>**对每个访问的对象都会检查是否是候选的要去重的String对象**</font>。
+  * 如果是，把这个对象的一个引用插入到队列中等待后续的处理。一个去重的线程在后台运行，处理这个队列。处理队列的一个元素意味着从队列删除这个元素，然后尝试去重引用的String对象。
+  * 使用一个hashtable来记录所有被String对象使用的不重复的char数组。当去重的时候，会查这个hashtable，来看堆上是否已经存在一个一模一样的char数组。
+  * 如果存在，String对象会被调整引用那个数组，释放对原来的数组的引用，最终会被垃圾收集器回收掉。
+  * 如果查找失败，char数组会被插入到hashtable，这样以后的时候就可以共享这个数组了。
+* 命令行选项
+  * UseStringDeduplication(bool)：开启String去重，<font color=red>**默认是不开启的，需要手动开启**</font>。
+  * PrintStringDeduplicationStatistics(bool)：打印详细的去重统计信息。
+  * StringDeduplicationAgeThreshold(uintx)：达到这个年龄的String对象被认为是去重的候选对象

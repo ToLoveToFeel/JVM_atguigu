@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @create 2020  15:29
  */
 public class HeapOOM {
-    byte[] buffer = new byte[1 * 1024 * 1024];//1MB
+    byte[] buffer = new byte[1 * 1024 * 1024];  // 1MB
 
     public static void main(String[] args) {
         ArrayList<HeapOOM> list = new ArrayList<>();

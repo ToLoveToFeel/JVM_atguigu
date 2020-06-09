@@ -25,5 +25,11 @@ public class RefCountGC {
         // 显式的执行垃圾回收行为
         // 这里发生GC，obj1和obj2能否被回收？
          System.gc();
+
+        try {
+            Thread.sleep(100000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

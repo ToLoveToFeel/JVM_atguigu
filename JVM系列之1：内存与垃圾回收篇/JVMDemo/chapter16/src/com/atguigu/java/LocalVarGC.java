@@ -1,12 +1,14 @@
 package com.atguigu.java;
 
 /**
+ * -XX:+PrintGCDetails
+ *
  * @author shkstart  shkstart@126.com
  * @create 2020  14:57
  */
 public class LocalVarGC {
     public void localvarGC1() {
-        byte[] buffer = new byte[10 * 1024 * 1024];//10MB
+        byte[] buffer = new byte[10 * 1024 * 1024];  // 10MB
         System.gc();
     }
 

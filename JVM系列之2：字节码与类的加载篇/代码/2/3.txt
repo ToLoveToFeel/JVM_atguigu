@@ -1,0 +1,56 @@
+Compiled from "JavapTest.java"
+public class com.atguigu.java1.JavapTest {
+  boolean flag;
+
+  protected char gender;
+
+  public java.lang.String info;
+
+  public static final int COUNTS;
+
+  public com.atguigu.java1.JavapTest();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: ldc           #2                  // String java
+       7: putfield      #3                  // Field info:Ljava/lang/String;
+      10: return
+
+  int getNum(int);
+    Code:
+       0: aload_0
+       1: getfield      #5                  // Field num:I
+       4: iload_1
+       5: iadd
+       6: ireturn
+
+  protected char showGender();
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field gender:C
+       4: ireturn
+
+  public void showInfo();
+    Code:
+       0: bipush        10
+       2: istore_1
+       3: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       6: new           #8                  // class java/lang/StringBuilder
+       9: dup
+      10: invokespecial #9                  // Method java/lang/StringBuilder."<init>":()V
+      13: aload_0
+      14: getfield      #3                  // Field info:Ljava/lang/String;
+      17: invokevirtual #10                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      20: iload_1
+      21: invokevirtual #11                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      24: invokevirtual #12                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      27: invokevirtual #13                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      30: return
+
+  static {};
+    Code:
+       0: ldc           #14                 // String www.atguigu.com
+       2: astore_0
+       3: return
+}

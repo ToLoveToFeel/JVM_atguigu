@@ -1,0 +1,173 @@
+Classfile /C:/Users/songhk/Desktop/1/JavapTest.class
+  Last modified 2020-9-7; size 1148 bytes
+  MD5 checksum 7691606eab1b30dd8f61b57d0504dbf7
+  Compiled from "JavapTest.java"
+public class com.atguigu.java1.JavapTest
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #16.#42        // java/lang/Object."<init>":()V
+   #2 = String             #43            // java
+   #3 = Fieldref           #15.#44        // com/atguigu/java1/JavapTest.info:Ljava/lang/String;
+   #4 = Fieldref           #15.#45        // com/atguigu/java1/JavapTest.flag:Z
+   #5 = Fieldref           #15.#46        // com/atguigu/java1/JavapTest.num:I
+   #6 = Fieldref           #15.#47        // com/atguigu/java1/JavapTest.gender:C
+   #7 = Fieldref           #48.#49        // java/lang/System.out:Ljava/io/PrintStream;
+   #8 = Class              #50            // java/lang/StringBuilder
+   #9 = Methodref          #8.#42         // java/lang/StringBuilder."<init>":()V
+  #10 = Methodref          #8.#51         // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #11 = Methodref          #8.#52         // java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+  #12 = Methodref          #8.#53         // java/lang/StringBuilder.toString:()Ljava/lang/String;
+  #13 = Methodref          #54.#55        // java/io/PrintStream.println:(Ljava/lang/String;)V
+  #14 = String             #56            // www.atguigu.com
+  #15 = Class              #57            // com/atguigu/java1/JavapTest
+  #16 = Class              #58            // java/lang/Object
+  #17 = Utf8               num
+  #18 = Utf8               I
+  #19 = Utf8               flag
+  #20 = Utf8               Z
+  #21 = Utf8               gender
+  #22 = Utf8               C
+  #23 = Utf8               info
+  #24 = Utf8               Ljava/lang/String;
+  #25 = Utf8               COUNTS
+  #26 = Utf8               ConstantValue
+  #27 = Integer            1
+  #28 = Utf8               <init>
+  #29 = Utf8               ()V
+  #30 = Utf8               Code
+  #31 = Utf8               LineNumberTable
+  #32 = Utf8               (Z)V
+  #33 = Utf8               methodPrivate
+  #34 = Utf8               getNum
+  #35 = Utf8               (I)I
+  #36 = Utf8               showGender
+  #37 = Utf8               ()C
+  #38 = Utf8               showInfo
+  #39 = Utf8               <clinit>
+  #40 = Utf8               SourceFile
+  #41 = Utf8               JavapTest.java
+  #42 = NameAndType        #28:#29        // "<init>":()V
+  #43 = Utf8               java
+  #44 = NameAndType        #23:#24        // info:Ljava/lang/String;
+  #45 = NameAndType        #19:#20        // flag:Z
+  #46 = NameAndType        #17:#18        // num:I
+  #47 = NameAndType        #21:#22        // gender:C
+  #48 = Class              #59            // java/lang/System
+  #49 = NameAndType        #60:#61        // out:Ljava/io/PrintStream;
+  #50 = Utf8               java/lang/StringBuilder
+  #51 = NameAndType        #62:#63        // append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #52 = NameAndType        #62:#64        // append:(I)Ljava/lang/StringBuilder;
+  #53 = NameAndType        #65:#66        // toString:()Ljava/lang/String;
+  #54 = Class              #67            // java/io/PrintStream
+  #55 = NameAndType        #68:#69        // println:(Ljava/lang/String;)V
+  #56 = Utf8               www.atguigu.com
+  #57 = Utf8               com/atguigu/java1/JavapTest
+  #58 = Utf8               java/lang/Object
+  #59 = Utf8               java/lang/System
+  #60 = Utf8               out
+  #61 = Utf8               Ljava/io/PrintStream;
+  #62 = Utf8               append
+  #63 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #64 = Utf8               (I)Ljava/lang/StringBuilder;
+  #65 = Utf8               toString
+  #66 = Utf8               ()Ljava/lang/String;
+  #67 = Utf8               java/io/PrintStream
+  #68 = Utf8               println
+  #69 = Utf8               (Ljava/lang/String;)V
+{
+  boolean flag;
+    descriptor: Z
+    flags:
+
+  protected char gender;
+    descriptor: C
+    flags: ACC_PROTECTED
+
+  public java.lang.String info;
+    descriptor: Ljava/lang/String;
+    flags: ACC_PUBLIC
+
+  public static final int COUNTS;
+    descriptor: I
+    flags: ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    ConstantValue: int 1
+
+  public com.atguigu.java1.JavapTest();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: ldc           #2                  // String java
+         7: putfield      #3                  // Field info:Ljava/lang/String;
+        10: return
+      LineNumberTable:
+        line 20: 0
+        line 18: 4
+        line 22: 10
+
+  int getNum(int);
+    descriptor: (I)I
+    flags:
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #5                  // Field num:I
+         4: iload_1
+         5: iadd
+         6: ireturn
+      LineNumberTable:
+        line 30: 0
+
+  protected char showGender();
+    descriptor: ()C
+    flags: ACC_PROTECTED
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #6                  // Field gender:C
+         4: ireturn
+      LineNumberTable:
+        line 33: 0
+
+  public void showInfo();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=2, args_size=1
+         0: bipush        10
+         2: istore_1
+         3: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         6: new           #8                  // class java/lang/StringBuilder
+         9: dup
+        10: invokespecial #9                  // Method java/lang/StringBuilder."<init>":()V
+        13: aload_0
+        14: getfield      #3                  // Field info:Ljava/lang/String;
+        17: invokevirtual #10                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        20: iload_1
+        21: invokevirtual #11                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+        24: invokevirtual #12                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        27: invokevirtual #13                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        30: return
+      LineNumberTable:
+        line 36: 0
+        line 37: 3
+        line 38: 30
+
+  static {};
+    descriptor: ()V
+    flags: ACC_STATIC
+    Code:
+      stack=1, locals=1, args_size=0
+         0: ldc           #14                 // String www.atguigu.com
+         2: astore_0
+         3: return
+      LineNumberTable:
+        line 15: 0
+        line 16: 3
+}
+SourceFile: "JavapTest.java"

@@ -1,2 +1,3 @@
 *.pdf
 /JVM系列之1：内存与垃圾回收篇/JVMDemo/out/
+/JVM系列之2：字节码与类的加载篇/代码/JVMDemo1/out/

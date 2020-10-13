@@ -16,16 +16,16 @@ public class InterfaceMethodTest {
 }
 
 
-interface AA{
-    public static void method1(){
+interface AA {
+    public static void method1() {
 
     }
 
-    public default void method2(){
+    public default void method2() {
 
     }
 }
 
-class BB implements AA{
+class BB implements AA {
 
 }

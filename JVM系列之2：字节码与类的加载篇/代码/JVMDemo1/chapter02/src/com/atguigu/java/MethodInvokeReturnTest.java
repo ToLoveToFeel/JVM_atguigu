@@ -54,28 +54,28 @@ public class MethodInvokeReturnTest {
     // 方法的返回指令
     public int returnInt() {
         int i = 500;
-        return i;
+        return i;  // ireturn
     }
 
     public double returnDouble() {
-        return 0.0;
+        return 0.0;  // dreturn
     }
 
     public String returnString() {
-        return "hello,world";
+        return "hello,world";  // areturn
     }
 
     public int[] returnArr() {
-        return null;
+        return null;  // areturn
     }
 
     public float returnFloat() {
         int i = 10;
-        return i;
+        return i;  // freturn
     }
 
     public byte returnByte() {
-        return 0;
+        return 0;  // ireturn
     }
 
     public void methodReturn() {

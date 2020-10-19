@@ -18,6 +18,7 @@ class StaticA {
         System.out.println("StaticA init OK");
     }
 }
+
 class StaticB {
     static {
         try {

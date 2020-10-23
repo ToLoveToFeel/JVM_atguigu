@@ -24,39 +24,38 @@ import java.util.Random;
  * 才会导致该接口的初始化。
  */
 public class ActiveUse3 {
-    static{
+    static {
         System.out.println("ActiveUse3的初始化过程");
     }
+
     @Test
-    public void test1() {
+    public void test1() {  // 4.
         try {
             Class clazz = Class.forName("com.atguigu.java1.Order");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
     @Test
-    public void test2() {
+    public void test2() {  // 5.
         System.out.println(Son.num);
     }
 
     @Test
-    public void test3(){
+    public void test3() {  // 5，补充说明
         System.out.println(CompareC.NUM1);
     }
 
     @Test
-    public void test4() {
+    public void test4() {  // 6.
         System.out.println(Son.num);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {  // 7.
         System.out.println("hello");
     }
 }
-
 
 class Father {
     static {
@@ -64,7 +63,7 @@ class Father {
     }
 }
 
-class Son extends Father implements CompareB{
+class Son extends Father implements CompareB {
     static {
         System.out.println("Son类的初始化过程");
     }
@@ -78,10 +77,10 @@ interface CompareB {
             System.out.println("CompareB的初始化");
         }
     };
-    public default void method1(){
+
+    public default void method1() {
         System.out.println("你好！");
     }
-
 }
 
 interface CompareC extends CompareB {

@@ -7,9 +7,9 @@ import java.io.*;
 /**
  * @author shkstart
  * @create 2020-09-14 16:37
- *
+ * <p>
  * 测试类的主动使用：意味着会调用类的<clinit>()，即执行了类的初始化阶段
- *
+ * <p>
  * 1. 当创建一个类的实例时，比如使用new关键字，或者通过反射、克隆、反序列化。
  * 2. 当调用类的静态方法时，即当使用了字节码invokestatic指令。
  */
@@ -18,7 +18,7 @@ public class ActiveUse1 {
         Order order = new Order();
     }
 
-    //序列化的过程：
+    // 序列化的过程：
     @Test
     public void test1() {
         ObjectOutputStream oos = null;
@@ -36,7 +36,6 @@ public class ActiveUse1 {
                 e.printStackTrace();
             }
         }
-
     }
 
     //反序列化的过程：（验证）
@@ -47,9 +46,7 @@ public class ActiveUse1 {
             ois = new ObjectInputStream(new FileInputStream("order.dat"));
 
             Order order = (Order) ois.readObject();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
@@ -59,22 +56,20 @@ public class ActiveUse1 {
                 e.printStackTrace();
             }
         }
-
     }
 
     @Test
-    public void test3(){
+    public void test3() {
         Order.method();
     }
-
 }
 
-class Order implements Serializable{
+class Order implements Serializable {
     static {
         System.out.println("Order类的初始化过程");
     }
 
-    public static void method(){
+    public static void method() {
         System.out.println("Order method()....");
     }
 }

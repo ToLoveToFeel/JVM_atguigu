@@ -26,7 +26,7 @@ public class UserClassLoader extends ClassLoader {
         if (classData == null) {
             throw new ClassNotFoundException();
         } else {
-            //直接生成class对象
+            // 直接生成class对象
             return defineClass(name, classData, 0, classData.length);
         }
     }
@@ -64,15 +64,15 @@ public class UserClassLoader extends ClassLoader {
         String rootDir = "D:\\code\\workspace_idea5\\JVMDemo1\\chapter04\\src\\";
 
         try {
-            //创建自定义的类的加载器1
+            // 创建自定义的类的加载器1
             UserClassLoader loader1 = new UserClassLoader(rootDir);
             Class clazz1 = loader1.findClass("com.atguigu.java.User");
 
-            //创建自定义的类的加载器2
+            // 创建自定义的类的加载器2
             UserClassLoader loader2 = new UserClassLoader(rootDir);
             Class clazz2 = loader2.findClass("com.atguigu.java.User");
 
-            System.out.println(clazz1 == clazz2); //clazz1与clazz2对应了不同的类模板结构。
+            System.out.println(clazz1 == clazz2);  // clazz1 与 clazz2对应了不同的类模板结构。
             System.out.println(clazz1.getClassLoader());
             System.out.println(clazz2.getClassLoader());
 
@@ -80,14 +80,10 @@ public class UserClassLoader extends ClassLoader {
             Class clazz3 = ClassLoader.getSystemClassLoader().loadClass("com.atguigu.java.User");
             System.out.println(clazz3.getClassLoader());
 
-
             System.out.println(clazz1.getClassLoader().getParent());
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-
     }
-
 }

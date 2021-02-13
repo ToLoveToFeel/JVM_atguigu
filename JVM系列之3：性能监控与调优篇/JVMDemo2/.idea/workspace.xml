@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="chapter03_demo:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f0d9125e-3350-4404-9215-1e6b385e2598" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../JVM系列之1：内存与垃圾回收篇/05_虚拟机栈.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../JVM系列之1：内存与垃圾回收篇/05_虚拟机栈.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JVM系列之1：内存与垃圾回收篇/06_本地方法接口.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../JVM系列之1：内存与垃圾回收篇/06_本地方法接口.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JVM系列之1：内存与垃圾回收篇/15_垃圾回收相关算法.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../JVM系列之1：内存与垃圾回收篇/15_垃圾回收相关算法.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1hi3LO4qZZnZCY1MNK922ExuT07" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/chapter04/src/com/atguigu/java" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="jprofiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.atguigu.java" />
+      <recent name="com.atguigu.arthas" />
+      <recent name="com.atguigu.jprofiler" />
+      <recent name="com.atguigu.jvisualvm" />
+      <recent name="com.atguigu.jconsole" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\workspace_jvm\JVMDemo2\chapter04\src\com\atguigu\java" />
+      <recent name="D:\code\workspace_jvm\JVMDemo2\chapter03\src\com\atguigu\jprofiler" />
+      <recent name="D:\code\workspace_jvm\JVMDemo2\chapter03\src\com\atguigu\arthas" />
+      <recent name="D:\code\workspace_jvm\JVMDemo2\chapter03\lib" />
+      <recent name="D:\code\workspace_jvm\JVMDemo2\chapter03\src\com\atguigu\mat" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ThreadDeadLock">
+    <configuration name="GCLogTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.java.GCLogTest" />
+      <module name="chapter05" />
+      <option name="VM_PARAMETERS" value="-Xms60m -Xmx60m -XX:SurvivorRatio=8 -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintHeapAtGC -Xloggc:d:/GCLogTest.log" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GCTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.jstat.GCTest" />
+      <module name="chapter04" />
+      <option name="VM_PARAMETERS" value="-Xms60m -Xmx60m -XX:SurvivorRatio=8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.jprofiler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GCTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.jstat.GCTest" />
+      <module name="chapter02" />
+      <option name="VM_PARAMETERS" value="-Xms60m -Xmx60m -XX:SurvivorRatio=8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GCTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.jmap.GCTest" />
+      <module name="chapter02" />
+      <option name="VM_PARAMETERS" value="-Xms60m -Xmx60m -XX:SurvivorRatio=8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemoryMonitor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.java.MemoryMonitor" />
+      <module name="chapter04" />
+      <option name="VM_PARAMETERS" value="-Xms100m -Xmx100m" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OOMTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.java.OOMTest" />
+      <module name="chapter04" />
+      <option name="VM_PARAMETERS" value="-Xms600m -Xmx600m -XX:-UseAdaptiveSizePolicy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OOMTest" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.java.OOMTest" />
+      <module name="chapter04" />
+      <option name="VM_PARAMETERS" value="-XX:+PrintFlagsFinal -Xms600m -Xmx600m -XX:+UseAdaptiveSizePolicy -XX:SurvivorRatio=8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OOMTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.arthas.OOMTest" />
+      <module name="chapter03" />
+      <option name="VM_PARAMETERS" value="-Xms600m -Xmx600m -XX:SurvivorRatio=8 -XX:+UnlockCommercialFeatures -XX:+FlightRecorder" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.arthas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScannerTest" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.jps.ScannerTest" />
+      <module name="chapter02" />
+      <option name="PROGRAM_PARAMETERS" value="HelloWorld" />
+      <option name="VM_PARAMETERS" value="-Xms100m -Xmx100m" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScannerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.jstat.ScannerTest" />
+      <module name="chapter02" />
+      <option name="VM_PARAMETERS" value="-Xms60m -Xmx60m" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.jstat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThreadDeadLock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.jstack.ThreadDeadLock" />
+      <module name="chapter02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.jstack.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="chapter03_demo" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.50" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/chapter03_demo/" />
+      <deployment>
+        <artifact name="chapter03_demo:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/chapter03_demo" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_8_0_50_JVMDemo2" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="62780" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Debug with VisualVM">
+        <option name="DEBUG_PORT" value="62781" />
+        <option name="visualVMId" value="195225382209900" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="JProfiler">
+        <option name="jreHome" value="D:/develop_tools/jdk/jdk1.8.0_131" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug with VisualVM">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JProfiler">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run with VisualVM">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="chapter03_demo:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.OOMTest" />
+      <item itemvalue="Application.MemoryMonitor" />
+      <item itemvalue="Application.GCTest" />
+      <item itemvalue="Application.ScannerTest" />
+      <item itemvalue="Tomcat Server.chapter03_demo" />
+      <item itemvalue="Application.ThreadDeadLock" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ThreadDeadLock" />
+        <item itemvalue="Application.GCTest" />
+        <item itemvalue="Application.ScannerTest" />
+        <item itemvalue="Application.GCTest" />
+        <item itemvalue="Application.GCTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f0d9125e-3350-4404-9215-1e6b385e2598" name="Default Changelist" comment="" />
+      <created>1600480028236</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600480028236</updated>
+      <workItem from="1600480031525" duration="308000" />
+      <workItem from="1600480351756" duration="1846000" />
+      <workItem from="1600604596289" duration="120000" />
+      <workItem from="1603414541234" duration="20000" />
+      <workItem from="1608792063619" duration="4204000" />
+      <workItem from="1608913449627" duration="2178000" />
+      <workItem from="1609082299246" duration="25000" />
+      <workItem from="1610597061985" duration="3729000" />
+      <workItem from="1610638678066" duration="3029000" />
+      <workItem from="1610677648398" duration="1997000" />
+      <workItem from="1610698148146" duration="14263000" />
+      <workItem from="1610763410486" duration="18162000" />
+      <workItem from="1610901522727" duration="464000" />
+      <workItem from="1610963776299" duration="1450000" />
+      <workItem from="1610970306631" duration="6505000" />
+      <workItem from="1610987246833" duration="772000" />
+      <workItem from="1611029717610" duration="14636000" />
+      <workItem from="1611107620577" duration="14891000" />
+      <workItem from="1611296936379" duration="1176000" />
+      <workItem from="1611367128084" duration="3098000" />
+      <workItem from="1611397891690" duration="6733000" />
+      <workItem from="1611576499031" duration="2532000" />
+      <workItem from="1611625314879" duration="2194000" />
+      <workItem from="1611710518191" duration="14190000" />
+      <workItem from="1611732625265" duration="10382000" />
+      <workItem from="1611761836013" duration="617000" />
+      <workItem from="1611798311184" duration="1427000" />
+      <workItem from="1611828058618" duration="5234000" />
+      <workItem from="1611910989470" duration="8080000" />
+      <workItem from="1611930903984" duration="1045000" />
+      <workItem from="1611971068444" duration="21007000" />
+      <workItem from="1613116902288" duration="9052000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2334" y="194" width="1122" height="600" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613133008410">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2334" y="194" width="1122" height="600" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613133008410" />
+    <state x="2609" y="328" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1613131765271">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2609" y="328" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613131765271" />
+    <state width="1877" height="364" key="GridCell.Tab.0.bottom" timestamp="1613138835372">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613138835372" />
+    <state width="1877" height="364" key="GridCell.Tab.0.center" timestamp="1613138835372">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613138835372" />
+    <state width="1877" height="364" key="GridCell.Tab.0.left" timestamp="1613138835371">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613138835371" />
+    <state width="1877" height="364" key="GridCell.Tab.0.right" timestamp="1613138835372">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613138835372" />
+    <state width="1877" height="364" key="GridCell.Tab.1.bottom" timestamp="1613138835372">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613138835372" />
+    <state width="1877" height="364" key="GridCell.Tab.1.center" timestamp="1613138835372">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613138835372" />
+    <state width="1877" height="364" key="GridCell.Tab.1.left" timestamp="1613138835372">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613138835372" />
+    <state width="1877" height="364" key="GridCell.Tab.1.right" timestamp="1613138835372">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613138835372" />
+  </component>
+</project>

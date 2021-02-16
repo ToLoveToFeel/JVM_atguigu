@@ -17,17 +17,18 @@ public class ChangeHashCode {
         set.add(p1);
         set.add(p2);
 
-        p1.name = "CC";//导致了内存的泄漏
-        set.remove(p1); //删除失败
-
+        p1.name = "CC";  // 导致了内存的泄漏
+        set.remove(p1);  // 删除失败
+        // [Person{id=1002, name='BB'}, Person{id=1001, name='CC'}]
         System.out.println(set);
 
         set.add(new Person(1001, "CC"));
+        // [Person{id=1002, name='BB'}, Person{id=1001, name='CC'}, Person{id=1001, name='CC'}]
         System.out.println(set);
 
         set.add(new Person(1001, "AA"));
+        // [Person{id=1002, name='BB'}, Person{id=1001, name='CC'}, Person{id=1001, name='CC'}, Person{id=1001, name='AA'}]
         System.out.println(set);
-
     }
 }
 
@@ -44,9 +45,7 @@ class Person {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Person)) return false;
-
         Person person = (Person) o;
-
         if (id != person.id) return false;
         return name != null ? name.equals(person.name) : person.name == null;
     }
@@ -60,9 +59,6 @@ class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Person{" + "id=" + id + ", name='" + name + '\'' + '}';
     }
 }

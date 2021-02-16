@@ -15,9 +15,11 @@ public class MapTest {
     static Map wMap = new WeakHashMap();
     static Map map = new HashMap();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         init();
+        System.out.println("---------------------------");
         testWeakHashMap();
+        System.out.println("---------------------------");
         testHashMap();
     }
 
@@ -34,53 +36,37 @@ public class MapTest {
 
     }
 
-    public static void testWeakHashMap() {
-
+    public static void testWeakHashMap() throws InterruptedException {
         System.out.println("WeakHashMap GC之前");
-        for (Object o : wMap.entrySet()) {
-            System.out.println(o);
-        }
-        try {
-            System.gc();
-            TimeUnit.SECONDS.sleep(5);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        for (Object o : wMap.entrySet()) System.out.println(o);
+        System.gc();
+        TimeUnit.SECONDS.sleep(2);
         System.out.println("WeakHashMap GC之后");
-        for (Object o : wMap.entrySet()) {
-            System.out.println(o);
-        }
+        for (Object o : wMap.entrySet()) System.out.println(o);
     }
 
-    public static void testHashMap() {
+    public static void testHashMap() throws InterruptedException {
         System.out.println("HashMap GC之前");
-        for (Object o : map.entrySet()) {
-            System.out.println(o);
-        }
-        try {
-            System.gc();
-            TimeUnit.SECONDS.sleep(5);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        for (Object o : map.entrySet()) System.out.println(o);
+        System.gc();
+        TimeUnit.SECONDS.sleep(2);
         System.out.println("HashMap GC之后");
-        for (Object o : map.entrySet()) {
-            System.out.println(o);
-        }
+        for (Object o : map.entrySet()) System.out.println(o);
     }
 
 }
 /**
  * 结果
  * String引用ref1，ref2，ref3，ref4 消失
+ * ---------------------------
  * WeakHashMap GC之前
  * obejct2=cacheObject2
  * obejct1=cacheObject1
  * WeakHashMap GC之后
+ * ---------------------------
  * HashMap GC之前
  * obejct4=cacheObject4
  * obejct3=cacheObject3
- * Disconnected from the target VM, address: '127.0.0.1:51628', transport: 'socket'
  * HashMap GC之后
  * obejct4=cacheObject4
  * obejct3=cacheObject3

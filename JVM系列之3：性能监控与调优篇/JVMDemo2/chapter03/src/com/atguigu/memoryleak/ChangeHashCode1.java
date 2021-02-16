@@ -4,6 +4,7 @@ import java.util.HashSet;
 
 /**
  * 演示内存泄漏
+ *
  * @author shkstart
  * @create 14:47
  */
@@ -11,16 +12,16 @@ public class ChangeHashCode1 {
     public static void main(String[] args) {
         HashSet<Point> hs = new HashSet<Point>();
         Point cc = new Point();
-        cc.setX(10);//hashCode = 41
+        cc.setX(10);  // hashCode = 41
         hs.add(cc);
 
-        cc.setX(20);//hashCode = 51  此行为导致了内存的泄漏
+        cc.setX(20);  // hashCode = 51  此行为导致了内存的泄漏
 
-        System.out.println("hs.remove = " + hs.remove(cc));//false
+        System.out.println("hs.remove = " + hs.remove(cc));  // false
         hs.add(cc);
-        System.out.println("hs.size = " + hs.size());//size = 2
+        System.out.println("hs.size = " + hs.size());  // size = 2
 
-        System.out.println(hs);
+        System.out.println(hs);  // [Point{x=20}, Point{x=20}]
     }
 
 }
@@ -56,8 +57,6 @@ class Point {
 
     @Override
     public String toString() {
-        return "Point{" +
-                "x=" + x +
-                '}';
+        return "Point{" + "x=" + x + '}';
     }
 }

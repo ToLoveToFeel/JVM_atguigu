@@ -7,33 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0d9125e-3350-4404-9215-1e6b385e2598" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../24_JVM监控及诊断工具-GUI篇.md" beforeDir="false" afterPath="$PROJECT_DIR$/../24_JVM监控及诊断工具-GUI篇.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../25_JVM运行时参数.md" beforeDir="false" afterPath="$PROJECT_DIR$/../25_JVM运行时参数.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../26_分析GC日志.md" beforeDir="false" afterPath="$PROJECT_DIR$/../26_分析GC日志.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/jconsole/HeapInstanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jconsole/HeapInstanceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/jprofiler/JProfilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jprofiler/JProfilerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/jprofiler/MemoryLeak.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jprofiler/MemoryLeak.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/jprofiler/OOMTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jprofiler/OOMTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/jvisualvm/OOMTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/jvisualvm/OOMTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/mat/OOMTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/mat/OOMTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/mat/StudentTrace.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/mat/StudentTrace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/ChangeHashCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/ChangeHashCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/ChangeHashCode1.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/ChangeHashCode1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/MapTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter03/src/com/atguigu/memoryleak/MapTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jconsole/HeapInstanceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jconsole/HeapInstanceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jprofiler/OOMTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jprofiler/OOMTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jprofiler/Picture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jprofiler/Picture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jvisualvm/OOMTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jvisualvm/OOMTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jvisualvm/Picture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/jvisualvm/Picture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/OOMTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/OOMTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/Picture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/Picture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/StudentTrace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/StudentTrace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/WebPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/mat/WebPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/ChangeHashCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/ChangeHashCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/ChangeHashCode1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/ChangeHashCode1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/MapTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/MapTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter03/com/atguigu/memoryleak/Point.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter04/src/com/atguigu/java/MemoryMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter04/src/com/atguigu/java/MemoryMonitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chapter04/com/atguigu/java/MemoryMonitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chapter04/com/atguigu/java/MemoryMonitor.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,13 +66,13 @@
       <recent name="D:\code\workspace_jvm\JVMDemo2\chapter03\src\com\atguigu\mat" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.OOMTest (1)">
-    <configuration name="ChangeHashCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.memoryleak.ChangeHashCode" />
-      <module name="chapter03" />
+  <component name="RunManager" selected="Application.MemoryMonitor">
+    <configuration name="MemoryMonitor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.java.MemoryMonitor" />
+      <module name="chapter04" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.atguigu.memoryleak.*" />
+          <option name="PATTERN" value="com.atguigu.java.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -102,55 +80,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ChangeHashCode1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.memoryleak.ChangeHashCode1" />
-      <module name="chapter03" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.atguigu.memoryleak.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MapTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.memoryleak.MapTest" />
-      <module name="chapter03" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.atguigu.memoryleak.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OOMTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.arthas.OOMTest" />
-      <module name="chapter03" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.atguigu.arthas.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OOMTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.jvisualvm.OOMTest" />
-      <module name="chapter03" />
-      <option name="VM_PARAMETERS" value="-Xms600m -Xmx600m -XX:SurvivorRatio=8" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.atguigu.jstack.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="OOMTest" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.atguigu.java.OOMTest" />
+      <module name="chapter04" />
+      <option name="VM_PARAMETERS" value="-XX:+PrintFlagsFinal" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -207,15 +140,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ScannerTest" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="com.atguigu.jps.ScannerTest" />
-      <module name="chapter02" />
-      <option name="PROGRAM_PARAMETERS" value="HelloWorld" />
-      <option name="VM_PARAMETERS" value="-Xms100m -Xmx100m" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -358,21 +282,15 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ScannerTest" />
       <item itemvalue="Application.OOMTest" />
-      <item itemvalue="Application.ChangeHashCode" />
-      <item itemvalue="Application.ChangeHashCode1" />
-      <item itemvalue="Application.MapTest" />
+      <item itemvalue="Application.ScannerTest" />
+      <item itemvalue="Application.MemoryMonitor" />
       <item itemvalue="Tomcat Server.chapter03_demo" />
-      <item itemvalue="Application.OOMTest (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.OOMTest (1)" />
+        <item itemvalue="Application.MemoryMonitor" />
         <item itemvalue="Application.OOMTest" />
-        <item itemvalue="Application.MapTest" />
-        <item itemvalue="Application.ChangeHashCode1" />
-        <item itemvalue="Application.ChangeHashCode" />
       </list>
     </recent_temporary>
   </component>
@@ -422,6 +340,9 @@
       <workItem from="1613201121391" duration="5481000" />
       <workItem from="1613352844613" duration="7294000" />
       <workItem from="1613455937971" duration="2003000" />
+      <workItem from="1613483028814" duration="1974000" />
+      <workItem from="1613524975077" duration="937000" />
+      <workItem from="1613541304716" duration="25000" />
     </task>
     <servers />
   </component>
@@ -429,34 +350,34 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2334" y="194" width="1122" height="600" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613391907353">
+    <state x="2334" y="194" width="1122" height="600" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613483452983">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2334" y="194" width="1122" height="600" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613391907353" />
-    <state x="2609" y="328" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1613391895934">
+    <state x="2334" y="194" width="1122" height="600" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613483452983" />
+    <state x="2609" y="328" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1613483199909">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2609" y="328" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613391895934" />
+    <state x="2609" y="328" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613483199909" />
     <state x="2660" y="294" key="FileChooserDialogImpl" timestamp="1613201298513">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2660" y="294" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613201298513" />
-    <state width="1877" height="341" key="GridCell.Tab.0.bottom" timestamp="1613468370073">
+    <state width="1877" height="341" key="GridCell.Tab.0.bottom" timestamp="1613489028272">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="341" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613468370073" />
-    <state width="1877" height="341" key="GridCell.Tab.0.center" timestamp="1613468370073">
+    <state width="1877" height="341" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613489028272" />
+    <state width="1877" height="341" key="GridCell.Tab.0.center" timestamp="1613489028272">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="341" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613468370073" />
-    <state width="1877" height="341" key="GridCell.Tab.0.left" timestamp="1613468370073">
+    <state width="1877" height="341" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613489028272" />
+    <state width="1877" height="341" key="GridCell.Tab.0.left" timestamp="1613489028272">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="341" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613468370073" />
-    <state width="1877" height="341" key="GridCell.Tab.0.right" timestamp="1613468370073">
+    <state width="1877" height="341" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613489028272" />
+    <state width="1877" height="341" key="GridCell.Tab.0.right" timestamp="1613489028272">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="341" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613468370073" />
+    <state width="1877" height="341" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1613489028272" />
     <state width="1877" height="364" key="GridCell.Tab.1.bottom" timestamp="1613138835372">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
